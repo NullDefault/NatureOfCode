@@ -6,7 +6,7 @@ class Mover {
   float time;
   
   Mover(){
-    location = new PVector(width/2, height/2);
+    location = new PVector(random(width), random(height));
     velocity = new PVector(0, 0);
     acceleration = new PVector(-0.001, 0.01);
     topspeed = 10;
@@ -30,14 +30,27 @@ class Mover {
   //}
   
   // Perlin Noise Random Acceleration
+  //void update(){
+  //  float n = noise(time);
+  //  acceleration = PVector.random2D();
+  //  acceleration.mult(n);
+  //  velocity.add(acceleration);
+  //  velocity.limit(topspeed);
+  //  location.add(velocity);
+  //  time += 0.01;
+  //}
+  
+  // Acceleration towards the Mouse
   void update(){
-    float n = noise(time);
-    acceleration = PVector.random2D();
-    acceleration.mult(n);
+    PVector mouse = new PVector(mouseX, mouseY);
+    PVector dir = PVector.sub(mouse, location);
+    dir.normalize();
+    dir.mult(0.5);
+    acceleration = dir;
+    
     velocity.add(acceleration);
     velocity.limit(topspeed);
     location.add(velocity);
-    time += 0.01;
   }
   
   void checkEdges(){
@@ -60,14 +73,20 @@ class Mover {
   }
 }
 
-Mover mover;
+Mover[] movers = new Mover[20];
+
 void setup(){
-  size(640, 360);
-  mover = new Mover();
+  size(800, 800);
+  for(int i=0; i < movers.length; i++){
+    movers[i] = new Mover();
+  }
 }
 void draw(){
   background(255);
-  mover.update();
-  mover.checkEdges();
-  mover.display();
+  for(int i = 0; i < movers.length; i++){
+      Mover mover = movers[i];
+      mover.update();
+      mover.checkEdges();
+      mover.display();
+  }
 }
