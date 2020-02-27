@@ -69,7 +69,7 @@ class Mover {
   void display(){
     stroke(0);
     fill(175);
-    ellipse(location.x, location.y, 16, 16);
+    ellipse(location.x, location.y, random(14, 18), random(14, 16));
   }
 }
 
