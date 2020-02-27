@@ -54,19 +54,23 @@ void setup(){
 }
 void draw(){
   background(255);
+  
+  PVector wind = new PVector(0.001, 0); 
+  
   for (int i = 0; i < movers.length; i++){
     
     float c = 0.01;
+    float normal = 1;
+    float frictionMag = c*normal;
     PVector friction = movers[i].velocity.get();
     friction.mult(-1);
     friction.normalize();
-    friction.mult(c);
-    movers[i].applyForce(friction);   
+    friction.mult(frictionMag);
     
-    PVector wind = new PVector(random(-.10, .10), 0); 
+    PVector gravity = new PVector(0, 0.1 * movers[i].mass);
+    
+    movers[i].applyForce(friction);       
     movers[i].applyForce(wind);
-    
-    PVector gravity = new PVector(0, 0.1*movers[i].mass);
     movers[i].applyForce(gravity);
     
     movers[i].update();
