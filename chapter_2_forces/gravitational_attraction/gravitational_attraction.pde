@@ -51,9 +51,16 @@ class Mover {
   }
   
   void display(){
+    float angle = velocity.heading();
+    
     stroke(0);
     fill(self_color);
-    ellipse(location.x, location.y, mass * 16, mass * 16);
+    rectMode(CENTER);
+    pushMatrix();
+    translate(location.x, location.y);
+    rotate(angle);
+    rect(0, 0, mass*16, mass*16);
+    popMatrix();
   }
 }
 
@@ -86,7 +93,7 @@ class Attractor{
   }
 }
 
-Mover[] movers = new Mover[100];
+Mover[] movers = new Mover[500];
 Attractor[] attractors = new Attractor[5];
 
 void setup(){
