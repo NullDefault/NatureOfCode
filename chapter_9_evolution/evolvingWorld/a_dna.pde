@@ -21,10 +21,19 @@ class DNA{
     }
   }
   
-  DNA copyGenes(){
-    float[] newgenes = new float[genes.length];
-    arraycopy(genes, newgenes);
-    return new DNA(newgenes);
+  DNA breedWith(DNA partner){
+    DNA child = new DNA();
+    
+    for(int i = 0; i < genes.length; i++){
+      int flip = parseInt(random(2));
+      if(flip == 0){
+        child.genes[i] = genes[i];
+      }else{
+        child.genes[i] = partner.genes[i];
+      }
+    }
+    return child;
   }
+  
   
 }
