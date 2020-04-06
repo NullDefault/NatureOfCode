@@ -5,6 +5,7 @@ class Grazer{
   float health;
   float xoff;
   float yoff;
+  PImage sprite;
   
   DNA dna;
   
@@ -18,11 +19,13 @@ class Grazer{
     
     
     maxspeed = map(dna.genes[0], 0, 1, 15, 0);
-    r        = map(dna.genes[0], 0, 1, 0, 50);
+    r        = map(dna.genes[0], 0, 1, 1, 50);
+    sprite = grazerSprite.copy();
+    sprite.resize((int)r*2, (int)r*2);
   }
   
   Grazer reproduce(){
-    if(random(1) < 0.0005){
+    if(random(1) < 0.0001){
       DNA childDNA = dna.copyGenes();
       childDNA.mutate();
       Grazer baby = new Grazer(location, childDNA);
@@ -76,6 +79,6 @@ class Grazer{
   }
   
   void display(){
-    ellipse(location.x, location.y, r, r);
+    image(sprite, location.x, location.y);
   }
 }

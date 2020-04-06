@@ -6,6 +6,6 @@ class Food{
   }
   
   void draw(){
-    image(foodSprite, location.x - 8, location.y - 8);
+    image(foodSprite, location.x, location.y);
   }
 }

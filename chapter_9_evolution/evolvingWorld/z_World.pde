@@ -24,6 +24,9 @@ class World{
   
   void runFood(){
     for(int i = food.size()-1; i >= 0; i--){
+      if(i == 250){
+        continue;
+      }
       Food f = food.get(i);
       PVector foodloc = f.location;
       f.draw();
