@@ -3,8 +3,8 @@ class Perceptron{
   float c;
   
   
-  Perceptron(int n){
-    c = 0.01;
+  Perceptron(int n, float lr){
+    c = lr;
     weights = new float[n];
     for(int i = 0; i < weights.length; i++){
       weights[i] = random(-1, 1);
