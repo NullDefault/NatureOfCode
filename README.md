@@ -23,9 +23,6 @@ Neural Networks </br>
 Visualization of a 3D cellular automata (4/4/5/M ruleset).
 ![3dconways](./screenshots/3dconways.gif)</br>
 
-Simple simulation of an ecosystem with a genetic algorithm at play.
-![evolvingWorld](./screenshots/evolvingWorld.gif)</br>
-
 Random 3D terrain generation based on perlin noise.
 ![randomTerrain](./screenshots/randomTerrain.gif)</br>
 
@@ -34,6 +31,9 @@ Genetic algorithm of rockets learning to go towards the target.
 
 Genetic algorithm learning to randomly generate the target phrase (provided by the user).
 ![stringGenetics](./screenshots/stringGenetics.gif)</br>
+
+Simple simulation of an ecosystem with a genetic algorithm at play.
+![evolvingWorld](./screenshots/evolvingWorld.gif)</br>
 
 Lorenz attractor visualization.
 ![strangeAttractor](./screenshots/strangeAttractor.gif)</br>
@@ -44,11 +44,11 @@ Visualization of a perceptron learning to predict which side of a line a particu
 Boids with the strength of rules being dictated by perlin noise.
 ![boids](./screenshots/boids.gif)</br>
 
-Vehicles following a path.
-![pathFollow](./screenshots/pathFollowing.gif)</br>
-
 LSystem fractal generation.
 ![lsys](./screenshots/LSys.gif)</br>
+
+Vehicles following a path.
+![pathFollow](./screenshots/pathFollowing.gif)</br>
 
 Pendulum swing.
 ![pendulum](./screenshots/pendulum.gif)</br>
